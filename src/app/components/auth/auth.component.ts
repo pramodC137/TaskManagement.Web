@@ -45,7 +45,7 @@ export class AuthComponent {
     if(this.isLoginMode) {
       this.authService.login(credentials).subscribe({
           next: () => {
-            this.successMessage = this.isLoginMode ? 'Login successful' : 'Registration successful';
+            this.successMessage = 'Login successful';
             setTimeout(() => this.loginSuccess.emit(), 500);
           },
           error: (err) => {
@@ -56,7 +56,7 @@ export class AuthComponent {
     } else {
       this.authService.register(credentials).subscribe({
           next: () => {
-            this.successMessage = this.isLoginMode ? 'Login successful' : 'Registration successful';
+            this.successMessage = 'Registration successful';
             setTimeout(() => this.loginSuccess.emit(), 500);
           },
           error: (err) => {
@@ -64,19 +64,5 @@ export class AuthComponent {
           }
       });
     }
-    
-    // const action = this.isLoginMode 
-    //   ? this.authService.login(credentials)
-    //   : this.authService.register(credentials);
-
-    // action.subscribe({
-    //   next: () => {
-    //     this.successMessage = this.isLoginMode ? 'Login successful' : 'Registration successful';
-    //     setTimeout(() => this.loginSuccess.emit(), 500);
-    //   },
-    //   error: (err) => {
-    //     this.errorMessage = err.error?.message || 'An error occurred';
-    //   }
-    // });
   }
 }
