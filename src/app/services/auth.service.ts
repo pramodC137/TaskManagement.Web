@@ -8,7 +8,7 @@ import { User, LoginRequest, RegisterRequest } from '../models/task.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:7000/api/auth';
+  private apiUrl = 'https://localhost:7247/api/auth';
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 

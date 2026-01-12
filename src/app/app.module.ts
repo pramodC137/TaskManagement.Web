@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './components/auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskManagerComponent } from './components/task-manager/task-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    TaskManagerComponent
   ],
   imports: [
     BrowserModule,

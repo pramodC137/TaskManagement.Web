@@ -1,6 +1,4 @@
 
-<app-auth (loginSuccess)="onLoginSuccess()"></app-auth>
+<app-auth *ngIf="!isLoggedIn" (loginSuccess)="onLoginSuccess()"></app-auth>
+<app-task-manager *ngIf="isLoggedIn"></app-task-manager>
 
-<!-- <router-outlet></router-outlet> -->
-
-<!-- *ngIf="!isLoggedIn" (loginSuccess)="onLoginSuccess()" -->
