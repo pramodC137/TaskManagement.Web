@@ -1,13 +1,28 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'task-management-web';
+export class AppComponent implements OnInit {
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.currentUser$.subscribe((user : any) => {
+      this.isLoggedIn = user !== null;
+    });
+    
+    this.authService.checkAuth().subscribe({
+      next: () => {},
+      error: () => {}
+    });
+  }
+
+  onLoginSuccess(): void {
+    this.isLoggedIn = true;
+  }
 }
